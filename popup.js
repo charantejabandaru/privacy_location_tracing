@@ -1,7 +1,6 @@
 const customizeInputs = document.getElementById("customize-inputs");
 const offsetInput = document.getElementById("offset-input");
 
-// Handle radio button changes
 const modeRadios = document.getElementsByName("mode");
 modeRadios.forEach(radio => {
     radio.addEventListener("change", () => {
@@ -18,7 +17,6 @@ modeRadios.forEach(radio => {
     });
 });
 
-// Handle form submission
 document.getElementById("submit").addEventListener("click", () => {
     const selectedMode = Array.from(modeRadios).find(radio => radio.checked)?.value;
     const latitude = parseFloat(document.getElementById("latitude")?.value || 0);
