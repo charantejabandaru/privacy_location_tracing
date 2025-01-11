@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Location Request</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f4f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 500px;
+            box-sizing: border-box;
+            font-size: 16px;
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        p {
+            font-size: 18px;
+            color: #7f8c8d;
+            margin-bottom: 20px;
+        }
+
+        .radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        label {
+            font-size: 16px;
+            color: #34495e;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+
+        input[type="radio"] {
+            margin-right: 10px;
+            accent-color: #27ae60;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        label {
+            font-size: 16px;
+            color: #34495e;
+        }
+
+        input[type="number"] {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            width: 100%;
+            box-sizing: border-box;
+            background-color: #ecf0f1;
+            transition: border-color 0.3s;
+        }
+
+        input[type="number"]:focus {
+            border-color: #27ae60;
+            outline: none;
+        }
+
+        button {
+            background-color: #27ae60;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 18px;
+            width: 100%;
+            margin-top: 25px;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        button:hover {
+            background-color: #2ecc71;
+            transform: translateY(-2px);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .input-group input[type="number"] {
+            width: 80%;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Location Access Requested</h2>
+        <p>Select a mode for location:</p>
+
+        <div class="radio-group">
+            <label>
+                <input type="radio" name="mode" value="customize" id="mode-customize"> Customize Location
+            </label>
+            <label>
+                <input type="radio" name="mode" value="offset" id="mode-offset"> Offset Location
+            </label>
+            <label>
+                <input type="radio" name="mode" value="precise" id="mode-precise"> Precise Location
+            </label>
+        </div>
+
+        <div id="customize-inputs" class="input-group hidden">
+            <label>
+                Latitude: <input type="number" id="latitude" step="0.0001" value="37.7749">
+            </label>
+            <label>
+                Longitude: <input type="number" id="longitude" step="0.0001" value="-122.4194">
+            </label>
+        </div>
+
+        <div id="offset-input" class="input-group hidden">
+            <label>
+                Offset: <input type="number" id="offset" step="0.0001" value="0.01">
+            </label>
+        </div>
+
+        <button id="submit">Submit</button>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+</html>
