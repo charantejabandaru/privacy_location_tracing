@@ -1,0 +1,27 @@
+{
+    "manifest_version": 3,
+    "name": "Geolocation Spoofer",
+    "version": "1.0",
+    "description": "Overrides the browser's geolocation API with a custom location and lets the user decide whether to allow or deny location access.",
+    "permissions": ["geolocation"],
+    "host_permissions": ["<all_urls>"],
+    "content_scripts": [
+        {
+            "matches": ["<all_urls>"],
+            "js": ["content.js"]
+        }
+    ],
+    "web_accessible_resources": [
+        {
+            "resources": ["injected.js"],
+            "matches": ["<all_urls>"]
+        }
+    ],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "action": {
+        "default_popup": "popup.html",
+        "default_title": "Geolocation Spoofer"
+    }
+}
